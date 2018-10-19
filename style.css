@@ -1,0 +1,97 @@
+body {
+  display: block;
+  align-content: center;
+  text-align: center;
+  background-color: #A1F7CB;
+  background: radial-gradient( green, #A1F7CB);
+}
+
+
+#rock, #paper, #scissor
+{
+    width: 80px;
+    height: 80px;
+	background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+	
+}
+#paper:hover, #rock:hover, #scissor:hover {
+    width: 75px;
+	height: 75px;
+}
+
+button {
+ position: relative;
+ margin: 30px 15px 45px 15px;
+ border: 7px solid #053119;
+ border-radius: 30%;
+ background-color: black;
+ box-shadow: -5px 5px 10px rgba(0, 0, 0, 3);
+}
+
+h1 {
+	height: 100px;
+	width: 600px;
+    font-family: 'Pacifico', cursive;
+	display: grid;
+	align-items: center;
+	color: #053119;
+	font-weight: lighter;
+	font-size: 60px;
+	margin: 80px auto auto auto;
+	
+}
+
+h2 {
+ color: #053220;
+ font-family: roboto;
+ height: 75px;
+ width: 400px;
+ font-size: 35px;
+ display: grid;
+ padding-left: 10px; 
+ align-items: center;
+ margin: auto auto;
+}
+
+div {
+  position: relative;
+ margin: 10px auto 35px auto;
+ 
+}
+#results {
+color: #78F1A0;
+width: 600px;
+background-color: #053119;
+	font-size: 25px;
+font-family: 'Permanent Marker', cursive;
+}
+
+#scores{
+color: #78F1A0;
+width: 600px;
+	font-size: 25px;
+background-color: #053119;
+font-family: 'Permanent Marker', cursive;
+}
+
+#icons
+{
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#rock {
+    background-image: url(images/fist.svg); 
+}
+
+#paper {
+    background-image: url(images/hand.svg); 
+}
+
+#scissor {
+    background-image: url(images/victory-sign.svg); 
+}

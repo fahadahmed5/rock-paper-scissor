@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+     <title> Rock Paper Scissor </title>
+     <link href="style.css" rel="stylesheet" type ="text/css">
+	 <link href="https://fonts.googleapis.com/css?family=Pacifico|Permanent+Marker" rel="stylesheet">
+ </head>
+
+ <body>
+ <h1> Rock Paper Scissor </h1>
+ <h2> SMASH YOUR POWER!! </h2>
+ <div id = "icons">
+   <button id ="rock">  </button>
+   <button id="paper">  </button>
+   <button id="scissor">  </button>
+ </div>
+   <div id="results"></div>
+   <div id= "scores"></div>
+   <script>
+         const rock= 'Rock';
+         const paper = 'Paper';
+         const scissors = 'Scissors';
+         const rockBtn = document.querySelector('#rock');
+         const paperBtn = document.querySelector('#paper');
+         const scissorsBtn = document.querySelector('#scissor');
+         const divresult = document.querySelector('#results');
+         const divscore = document.querySelector('#scores')
+  
+         var userScore = 0;
+         var compScore = 0;
+    var gameOver = false;
+    function computerPlay() {
+      let choices = [ rock, paper, scissors ];
+      let randomNum = Math.floor(Math.random() * choices.length);
+      let selection = choices[randomNum];
+      return selection;
+    }
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection == rock && computerSelection == paper) {
+            compScore++;
+            return rock + " vs. " + paper + 
+            ".\n" + "You Lose.";
+        } else if(playerSelection == paper && computerSelection == scissors) {
+            compScore++;
+            return paper + " vs. " + scissors +
+            ".\n" + "You Lose.";
+        } else if (playerSelection == scissors && computerSelection == rock) {
+            compScore++;
+            return scissors + " vs. " + rock + ".\n" + "You Lose.";
+        } else if (playerSelection == computerSelection) {
+            return playerSelection + " vs. " +
+            computerSelection + ".\n" + "Draw!";
+        } else {
+            userScore++;
+            return playerSelection + " vs. " +
+            computerSelection + ".\n" + "You win!";
+        }
+    }
+    function game() {
+        rockBtn.addEventListener('click', () => {
+            divresult.textContent = playRound(rock, computerPlay());
+            updateScores(scores);
+            checkGameStatus();
+        });
+        paperBtn.addEventListener('click', () => {
+            divresult.textContent = playRound(paper, computerPlay());
+            updateScores(scores);
+            checkGameStatus();
+        });
+        scissorsBtn.addEventListener('click', () => {
+            divresult.textContent = playRound(scissors, computerPlay());
+            updateScores(scores);
+            checkGameStatus();
+        });
+    }
+    function updateScores(div) {
+        div.textContent = "Your score: " + userScore + ", Computer score: " + compScore;
+    }
+    function checkGameStatus() {
+        if (userScore == 5) {
+            divresult.textContent = "You Win!!!";
+            userScore = 0;
+            compScore = 0;
+        } else if (compScore == 5) {
+            divresult.textContent = "You Lose.";
+            userScore = 0
+            compScore = 0;        
+        }
+    }
+    game();
+   
+    
+   
+
+   </script>
+ </body>
+
+</html>
